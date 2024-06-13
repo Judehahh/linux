@@ -395,6 +395,11 @@
 			};
 		};
 
+		c908s_rproc: c908s {
+			compatible = "canaan,k230-rproc";
+			status = "disabled";
+		};
+
 		security: security {
 			status              	= "okay";
 			compatible          	= "simple-bus";

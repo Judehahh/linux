@@ -26,7 +26,19 @@
 		linux,initrd-end = <0x0 0x0>;
 		stdout-path = "serial0:115200";
 	};
+
+	reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		rproc_ram: region@19000000 {
+			reg = <0x0 0x1f000000 0x0 0xfff000>;
+			no-map;
+		};
+	};
 };
+
 &ddr {
 	reg = <0x0 0x200000 0x0 0x1fdff000>;  /*linux memory config*/
 };
@@ -143,5 +155,12 @@
 };
 
 &uart0 {
+	status = "okay";
+};
+
+&c908s_rproc {
+	memory-region = <&rproc_ram>;
+	core-name = "c908s";
+	firmware-name = "firmware.elf";
 	status = "okay";
 };

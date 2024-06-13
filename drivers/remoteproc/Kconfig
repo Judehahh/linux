@@ -365,6 +365,15 @@ config XLNX_R5_REMOTEPROC
 
 	  It's safe to say N if not interested in using RPU r5f cores.
 
+config CANAAN_K230_REMOTEPROC
+	tristate "Canaan K230 remoteproc support"
+	depends on ARCH_CANAAN || COMPILE_TEST
+	help
+	  Say y or m here to support Canaan K230 remote processors via the remote
+	  processor framework.
+
+	  It's safe to say N if not interested in using RPU r5f cores.
+
 endif # REMOTEPROC
 
 endmenu
